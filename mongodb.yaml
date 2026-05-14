@@ -1,0 +1,24 @@
+- name: Doing the Mongodbwork
+  hosts: mongodb 
+  become: yes
+  tasks:
+    - name: Copy configuration file
+      ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+    
+    - name: Installing the Mongodb
+      ansible.builtin.dnf:
+        name: 'mongodb-org'
+        state: 'present'
+    
+  
+    - name: Starting and enabling the Mongodb
+      ansible.builtin.service:
+        name: 'mongod'
+        state: 'present'
+        enabled: 'yes'
+    
+    
+
+
