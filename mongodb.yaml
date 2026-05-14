@@ -1,5 +1,5 @@
 - name: Doing the Mongodbwork
-  hosts: mongodb 
+  hosts: mongodb
   become: yes
   tasks:
     - name: Copy configuration file
