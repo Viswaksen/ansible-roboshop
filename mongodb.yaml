@@ -20,12 +20,12 @@
       enabled: 'yes'
 
   - name: Replace a localhost entry with our own
-    ansible.builtin.lineinfile:
+    ansible.builtin.replace:
       path: /etc/mongod.conf
       regexp: '127.0.0.1 '
       replace: '0.0.0.0'
     
-  - name: Starting and enabling the Mongodb
+  - name: Restarting the mongo
     ansible.builtin.service:
       name: 'mongod'
       state: 'restarted'
