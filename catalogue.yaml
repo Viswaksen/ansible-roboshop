@@ -68,18 +68,18 @@
       name: mongodb-mongosh
       state: present
 
-  - name: Loading Masterdata
-    tags:
-    - import
+  - name: Check products loaded or not
     ansible.builtin.shell: mongosh --host mongodb.viswak.shop</app/db/master-data.js
     register: catalogue_output
 
 
   - name: Print catalogue output
-    tags:
-    - import
     ansible.builtin.debug:
       msg: "{{ catalogue_output }}"
+
+  - name: load products
+    ansible.builtin.shell: mongosh --host mongodb.viswak.shop</app/db/master-data.js
+    when: catalogue_output.stdout | int < 0
 
 
   
