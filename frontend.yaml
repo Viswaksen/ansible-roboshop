@@ -32,7 +32,7 @@
   - name: Download configuration file
     ansible.builtin.get_url:
       url: "https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip"
-      dest: /tmp/user.zip
+      dest: /tmp/frontend.zip
 
   - name: Unzipping the code
     ansible.builtin.unarchive:
