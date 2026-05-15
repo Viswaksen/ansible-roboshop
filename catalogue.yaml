@@ -39,7 +39,7 @@
   - name: Install npm packages
     community.general.npm:
       path: /app
-      state: present
+      
 
   - name: Copying the file
     ansible.builtin.copy:
