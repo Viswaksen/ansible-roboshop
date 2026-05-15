@@ -63,12 +63,14 @@
       dest: /etc/yum.repos.d/mongo.repo
     
   - name: Installing the Mongodb client
+    tags:
+    - import
     ansible.builtin.dnf:
       name: mongodb-mongosh
       state: present
 
   - name: Loading Masterdata
-    ansible.builtin.shell: mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+    ansible.builtin.shell: mongosh --host mongodb.viswak.shop</app/db/master-data.js
 
   
 
