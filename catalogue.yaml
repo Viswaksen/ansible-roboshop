@@ -69,7 +69,16 @@
       state: present
 
   - name: Loading Masterdata
+    tags:
+    - import
     ansible.builtin.shell: mongosh --host mongodb.viswak.shop</app/db/master-data.js
+    register: catalogue_output
+
+
+  - name: Print catalogue output
+    ansible.builtin.debug:
+      msg: "{{ catalogue_output }}"
+
 
   
 
