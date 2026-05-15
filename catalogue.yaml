@@ -76,6 +76,8 @@
 
 
   - name: Print catalogue output
+    tags:
+    - import
     ansible.builtin.debug:
       msg: "{{ catalogue_output }}"
 
