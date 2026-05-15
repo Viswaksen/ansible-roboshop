@@ -5,7 +5,6 @@
   - name: disabling the redis
     ansible.builtin.command: dnf module disable redis -y
 
-  tasks:
   - name: enabling the redis
     ansible.builtin.command: dnf module enable redis:7 -y
 
@@ -17,7 +16,7 @@
   - name: Replace a localhost entry with our own
     ansible.builtin.replace:
       path: /etc/redis/redis.conf
-      regexp: '127.0.0.1 '
+      regexp: '127.0.0.1'
       replace: '0.0.0.0'
     
   - name: Disabling the protective mode 
