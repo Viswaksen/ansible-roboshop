@@ -57,6 +57,18 @@
       state: started
       enabled: yes
   
+  - name: Copy configuration file
+    ansible.builtin.copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+    
+  - name: Installing the Mongodb client
+    ansible.builtin.dnf:
+      name: mongodb-mongosh
+      state: present
+
+  - name: Loading Masterdata
+    ansible.builtin.shell: mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
 
   
 
