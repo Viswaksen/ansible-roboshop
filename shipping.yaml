@@ -88,7 +88,7 @@
       login_user: root
       login_password: RoboShop@1
       login_host: mysql.viswak.shop
-      state: present
+      state: import
       target: "{{ item }}"
     loop:
     - /app/db/schema.sql
