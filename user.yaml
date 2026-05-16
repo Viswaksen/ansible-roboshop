@@ -55,5 +55,11 @@
       name: user
       state: started
       enabled: yes
+
+  
+  - name: Installing mysql
+    ansible.builtin.dnf:
+      name: mysql
+      state: present
   
   
