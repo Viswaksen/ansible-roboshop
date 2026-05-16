@@ -61,3 +61,12 @@
     ansible.builtin.dnf:
       name: mysql
       state: present
+
+  - name: connect to mysql using app user
+    community.mysql.mysql_info:
+      login_user: shipping
+      login_password: RoboShop@1
+      login_host: mysql.viswak.shop
+      login_db: cities
+
+    
