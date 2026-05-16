@@ -52,7 +52,7 @@
       daemon_reload: true
 
   - name: Start and enable shipping
-    ansible.builtin.shipping:
+    ansible.builtin.service:
       name: shipping
       state: started
       enabled: yes
