@@ -4,7 +4,7 @@
   tasks:
   - name: Installing maven and mysql
     ansible.builtin.dnf:
-      name: {{ item }}
+      name: "{{ item }}"
       state: present
     loop:
     - maven
@@ -12,7 +12,7 @@
 
   - name: Installing PyMySQL and cryptography
     ansible.builtin.pip:
-      name: {{ item }}
+      name: "{{ item }}"
       executable: pip3
     loop:
     - PyMySQL
