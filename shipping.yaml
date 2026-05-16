@@ -2,15 +2,21 @@
   hosts: shipping
   become: yes
   tasks:
-  - name: Installing maven
+  - name: Installing maven and mysql
     ansible.builtin.dnf:
-      name: maven
+      name: {{ item }}
       state: present
+    loop:
+    - maven
+    - mysql
 
-  - name: Installing PyMySQL
+  - name: Installing PyMySQL and cryptography
     ansible.builtin.pip:
-      name: PyMySQL
+      name: {{ item }}
       executable: pip3
+    loop:
+    - PyMySQL
+    - cryptography
 
   - name: Create application user
     ansible.builtin.user:
